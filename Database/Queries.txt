@@ -1,0 +1,73 @@
+=== MONGODB QUERIES FOR 100 LADRILLOS CHALLENGE ===
+-Nombre de la base de datos a utilizar: Challenge100Ladrillos
+
+-Crear colecciones vacías dentro de la base de datos: 
+    Colección "properties": Lista de propiedades disponibles dentro de 100 Ladrillos. 
+    Atributos: 
+        -ID
+        -PropertyName
+        -Location
+        -AvailableBricks
+        -SoldBricks
+
+    db.createCollection("properties")
+
+    Colección "brickList": Lista de todos los bricks disponibles para su venta en la plataforma. 
+    Atributos: 
+        -ID
+        -BrickName
+        -Property
+        -Price
+        -AvailableBricks
+        -SoldBricks
+        -Description
+        -OnSaleProcess
+        
+    db.createCollection("brickList")
+
+    Colección "purchaseList": Lista de ventas concretadas. Aquí se va a hacer un registro de todas las ventas realizadas 
+                              y desglosadas por cada brick correspondiente. 
+    Atributos: 
+        -ID
+        -BrickName
+        -Property
+        -SaleTransactionID
+        -Quantity
+        -UnitPrice
+        -TotalPrice
+        -Date
+        -Hour
+        
+    db.createCollection("purchaseList")
+
+=== DATOS DE ENTRADA POR COLECCIÓN ===
+-Properties: 
+    db.getCollection("properties").insert(
+        [{ _id: 1, PropertyName: "Propiedad 1", Location: "Guadalajara, Mexico", AvailableBricks: 5, SoldBricks: 0 }, 
+        { _id: 2, PropertyName: "Propiedad 2", Location: "Culiacan, Mexico", AvailableBricks: 8, SoldBricks: 0 },
+        { _id: 3, PropertyName: "Propiedad 3", Location: "Xalapa, Mexico", AvailableBricks: 2, SoldBricks: 0 },
+        { _id: 4, PropertyName: "Propiedad 4", Location: "Lima, Peru", AvailableBricks: 3, SoldBricks: 0 },
+        { _id: 5, PropertyName: "Propiedad 5", Location: "Santiago, Chile", AvailableBricks: 1, SoldBricks: 0 }]
+    )
+
+-BrickList: 
+db.getCollection("brickList").insert(
+    [
+        {_id: 1, BrickName: "GDL1", Property: 1, Price: 1200, AvailableBricks: 2, SoldBricks: 0, Description: "", OnSaleProcess: 0},
+        {_id: 2, BrickName: "GDL2", Property: 1, Price: 3200, AvailableBricks: 2, SoldBricks: 0, Description: "", OnSaleProcess: 0},
+        {_id: 3, BrickName: "GDL3", Property: 1, Price: 4500, AvailableBricks: 1, SoldBricks: 0, Description: "", OnSaleProcess: 0},
+        {_id: 4, BrickName: "CUL1", Property: 2, Price: 890, AvailableBricks: 2, SoldBricks: 0, Description: "", OnSaleProcess: 0},
+        {_id: 5, BrickName: "CUL2", Property: 2, Price: 1400, AvailableBricks: 2, SoldBricks: 0, Description: "", OnSaleProcess: 0},
+        {_id: 6, BrickName: "CUL3", Property: 2, Price: 2450, AvailableBricks: 3, SoldBricks: 0, Description: "", OnSaleProcess: 0},
+        {_id: 7, BrickName: "CUL4", Property: 2, Price: 320, AvailableBricks: 1, SoldBricks: 0, Description: "", OnSaleProcess: 0},
+        {_id: 8, BrickName: "XLP1", Property: 3, Price: 1600, AvailableBricks: 1, SoldBricks: 0, Description: "", OnSaleProcess: 0},
+        {_id: 9, BrickName: "XLP2", Property: 3, Price: 230, AvailableBricks: 1, SoldBricks: 0, Description: "", OnSaleProcess: 0},
+        {_id: 10, BrickName: "LIM1", Property: 4, Price: 4500, AvailableBricks: 1, SoldBricks: 0, Description: "", OnSaleProcess: 0},
+        {_id: 11, BrickName: "LIM2", Property: 4, Price: 2300, AvailableBricks: 1, SoldBricks: 0, Description: "", OnSaleProcess: 0},
+        {_id: 12, BrickName: "LIM3", Property: 4, Price: 1320, AvailableBricks: 1, SoldBricks: 0, Description: "", OnSaleProcess: 0},
+        {_id: 13, BrickName: "SCL1", Property: 5, Price: 6000, AvailableBricks: 1, SoldBricks: 0, Description: "", OnSaleProcess: 0}
+    ]
+)
+
+-PurchaseList: 
+    //Colección vacía de inicio. Será modificada en tiempo real de ejecución. 

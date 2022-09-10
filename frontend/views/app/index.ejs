@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>100 Ladrillos Challenge</title>
+</head>
+<body>
+    <header>
+        <h1>100 Ladrillos Challenge</h1>
+    </header>
+    <section id="propiedades">
+        <h2>Lista de Propiedades</h2>
+        <table class="table table-hover">
+            <thead>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Ubciación</th>
+                <th scope="col">Bricks Disponibles</th>
+            </thead>
+            <tbody id="tableProperties">
+            </tbody>
+        </table>
+        <script type="text/javascript">
+            var Params = <%-JSON.stringify(params)%>;
+            var PropertiesList = <%-JSON.stringify(properties_list)%>;
+            var BricksList = <%-JSON.stringify(bricks_list)%>;
+            var html = '';
+            for(var i=0; i<PropertiesList.length; i++)
+            {
+                html += '<tr><th scope="row">';
+                html += PropertiesList[i]._id;
+                html += '</th><th>';
+                html += PropertiesList[i].PropertyName;
+                html += '</th><th>';
+                html += PropertiesList[i].Location;
+                html += '</th><th>';
+                html += PropertiesList[i].AvailableBricks;
+                html += '</th></tr>';
+            }
+            document.getElementById("tableProperties").innerHTML = html;
+        </script>
+    </section>
+    <section id="bricks">
+        <h2>Lista de Bricks Disponibles</h2>
+        <table class="table table-hover">
+            <thead>
+                <th scope="col">Nombre</th>
+                <th scope="col">Propiedad</th>
+                <th scope="col">Precio unitario</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Bricks Disponibles</th>
+                <th scope="col">Agregar al Carrito</th>
+            </thead>
+            <tbody id="tableBricks">
+            </tbody>
+        </table>
+        <script type="text/javascript">
+            var html = '';
+            for(var i=0; i<BricksList.length; i++)
+            {
+                html += '<tr><th scope="row">';
+                html += BricksList[i].BrickName;
+                html += '</th><th>';
+                html += BricksList[i].Property;
+                html += '</th><th>';
+                html += BricksList[i].Price;
+                html += '</th><th>';
+                html += BricksList[i].Description;
+                html += '</th><th>';
+                html += BricksList[i].AvailableBricks;
+                html += '</th><th>';
+                html += '<button type="button" class="btn btn-primary">Agregar al Carrito</button>';
+                html += '</th></tr>';
+            }
+            document.getElementById("tableBricks").innerHTML = html;
+        </script>
+    </section>
+    <footer>
+        Elaborado por: M.C. Luis Eduardo Villela Zavala
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>
