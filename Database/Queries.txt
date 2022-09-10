@@ -71,3 +71,13 @@ db.getCollection("brickList").insert(
 
 -PurchaseList: 
     //Colección vacía de inicio. Será modificada en tiempo real de ejecución. 
+
+-ShoppingCart: 
+    //Colección vacía de inicio. Será modificada en tiempo real de ejecución. 
+
+// ========== QUERIES PARA ENDPOINT addToCart ==========
+-Consulta que valida los bricks que están en proceso de venta. 
+db.brickList.aggregate([
+    {$match: {_id: 6.0, BrickName: "CUL3"}}, 
+    {$project: {_id: 1, BrickName: 1, available: {$subtract: ["$AvailableBricks", "$SoldBricks"]}}}
+], {allowDiskUse: true})
