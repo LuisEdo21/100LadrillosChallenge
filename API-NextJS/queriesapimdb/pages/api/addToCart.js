@@ -155,7 +155,7 @@ export default async(req, res) => {
         {
             res.json({
 				error: "Función no admitida."
-			})
+			});
         }
 	}
 	else
