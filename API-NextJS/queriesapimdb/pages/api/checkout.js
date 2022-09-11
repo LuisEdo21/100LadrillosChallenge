@@ -38,6 +38,7 @@ export default async(req, res) => {
     var TOTAL = 0;                      //Monto total a pagar con impuestos incluidos
     var updateBricksQuery = [];         //Query para hacer la consulta de actualización de AvailableBricks y OnSaleProcess en brickList. 
     var insertPurchaseListQuery = [];   //Query para formar el reporte de venta que irá a purchaseList. 
+    var DropCollectionQuery = [];       //Query para vaciar la colección shoppingCart. 
 
     //Obtención de las variables provenientes del frontend por medio del método POST:
 	const { FUNCTION } = req.query;
@@ -58,7 +59,7 @@ export default async(req, res) => {
 	{
         //Generar reporte visual de venta: 
         Results = 
-            await db.collection("shoppingCart").find({});
+            await db.collection("shoppingCart").find({}).toArray();
 
         //Calcular subtotal, IVA y total: 
         for(var i=0; i<Results.length; i++)
@@ -66,8 +67,8 @@ export default async(req, res) => {
             TOTAL += (Results[i].Price * Results[i].Quantity);
         }
 
-        Subtotal = TOTAL * 0.84;
-        IVA = TOTAL = 0.16;
+        Subtotal = (TOTAL * 0.84).toFixed(2);
+        IVA = (TOTAL * 0.16).toFixed(2);
 
         //Función 1 (Revisar descripción en los comentarios de la parte superior): 
         if(FUNCTION == 1)
@@ -83,9 +84,9 @@ export default async(req, res) => {
         //Función 2 (Revisar descripción en los comentarios de la parte superior): 
         else if(FUNCTION == 2)
         {
-            var Date = new Date();
-            var DateStr = Date.toString();
-            var Hour = Date.getHours();
+            var CurrentDate = new Date();
+            var DateStr = CurrentDate.toString();
+            var Hour = CurrentDate.getHours();
             
             var BricksSold = [];
             var ObjectAux = {};
@@ -97,13 +98,13 @@ export default async(req, res) => {
                     await db.collection("brickList").update(
                         {_id: parseInt(Results[i]._id)},
                         {
-                            $inc: {OnSaleProcess: -(Results[i].Quantity), AvailableBricks: -(Results[i].Quantity)},
+                            $inc: {OnSaleProcess: -(Results[i].Quantity), AvailableBricks: -(Results[i].Quantity), SoldBricks: Results[i].Quantity},
                             $set: {}
                         }
-                    ).toArray();
+                    );
 
                 ObjectAux = {ID: Results[i]._id, BrickName: Results[i].BrickName, Quantity: Results[i].Quantity, UnitPrice: Results[i].Price, Total: (Results[i].Quantity * Results[i].Price)}
-                BricksSold.pusg(ObjectAux);
+                BricksSold.push(ObjectAux);
             }
             //Generar reporte de venta finalizada y guardarlo en la colección purchaseList
             insertPurchaseListQuery = 
@@ -114,7 +115,11 @@ export default async(req, res) => {
                     "Subtotal": Subtotal,
                     "IVA": IVA,
                     "Total": TOTAL
-                }).toArray();
+                });
+
+            //Vaciar la colección shoppingCart, ya que el cliente ya finalizó su compra y se guardó el reporte en purchaseList. 
+            DropCollectionQuery = 
+                await db.collection("shoppingCart").remove({});
 
             res.json({
                 success: "Compra finalizada con éxito",

@@ -5,8 +5,7 @@ import {connectToDatabase} from "../../util/mongodb";
 Este endpoint perteneciente a la API se creó solo con el propósito de probar la conexión a la base de datos una vez que se 
 creó la conexión a MongoDB por medio de NextJS.
 
-Solo retorna lo que se tiene dentro de cada colección, dado a que no es una pieza fundamental para el desarrollo de la aplicación
-se probó la conexión utilizando Postman. 
+Solo retorna lo que se tiene dentro de cada colección.
 */
 
 export default async(req, res) => {
@@ -16,9 +15,6 @@ export default async(req, res) => {
 	var ResultsBrickList = [];
     var ResultsProperties = [];
     var ResultsPurchaseList = [];
-
-    //Obtención de las variables provenientes del frontend por medio del método POST:
-	//const { NIVEL, CIRC, ENTIDAD, DTO_FED, DTO_LOC, ID_MUNICIPIO, SECCION } = req.body;
 
 	if(req.method === "POST")
 	{

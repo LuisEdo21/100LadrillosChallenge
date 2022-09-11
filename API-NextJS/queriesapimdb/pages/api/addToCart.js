@@ -44,7 +44,7 @@ export default async(req, res) => {
             Results = 
                 await db.collection("brickList").aggregate([
                     {$match: {_id: parseInt(ID), BrickName: String(BRICK_NAME)}}, 
-                    {$project: {_id: 1, BrickName: 1, available: {$subtract: ["$AvailableBricks", "$SoldBricks"]}}}
+                    {$project: {_id: 1, BrickName: 1, available: {$subtract: ["$AvailableBricks", "$OnSaleProcess"]}}}
                 ], {allowDiskUse: true}).toArray();
 
             if(Results[0].available > 0)
@@ -58,13 +58,14 @@ export default async(req, res) => {
                             $inc: {OnSaleProcess: 1},
                             $set: {}
                         }
-                    ).toArray();
+                    );
 
                 //Se valida si el brick que se desea añadir no se encuentra ya en el carrito. 
                 SearchQuery = 
                     await db.collection("shoppingCart").find({_id: parseInt(ID)}).toArray();
-
-                if(SearchQuery[0] == "")
+                
+                console.log(SearchQuery);
+                if(SearchQuery.length == 0)
                 {
                     //No está en el carrito
                     //Se hace una consulta de los datos del brick que se desea añadir para formar el registro que posteriormente será
@@ -81,7 +82,7 @@ export default async(req, res) => {
                             "Property": SearchQuery[0].Property,
                             "Price": SearchQuery[0].Price,
                             "Quantity": 1
-                        }).toArray();
+                        });
                 }
                 else
                 {
@@ -94,7 +95,7 @@ export default async(req, res) => {
                                 $inc: {Quantity: 1},
                                 $set: {}
                             }
-                        ).toArray();
+                        );
                 }
                 res.json({
                     success: "Brick añadido al carrito satisfactoriamente!!!"
@@ -120,7 +121,7 @@ export default async(req, res) => {
                         $inc: {OnSaleProcess: -1},
                         $set: {}
                     }
-                ).toArray();
+                );
 
             //Eliminar el registro de la colección shoppingCart: 
                 //Si sólo hay un brick de este tipo, eliminar el registro: 
@@ -138,13 +139,13 @@ export default async(req, res) => {
                             $inc: {Quantity: -1},
                             $set: {}
                         }
-                    ).toArray();
+                    );
                 }
             else 
             {
                 //Solo hay un brick del mismo tipo en el carrito. Eliminar el registro completo. 
                 UpdateQuery = 
-                    await db.collection("shoppingCart").remove({_id: parseInt(ID)}).toArray();
+                    await db.collection("shoppingCart").remove({_id: parseInt(ID)});
             }
             
             res.json({

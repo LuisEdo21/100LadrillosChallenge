@@ -44,12 +44,12 @@ export default async(req, res) => {
                         $inc: {OnSaleProcess: -(GetQuantitiesQuery[i].Quantity)},
                         $set: {}
                     }
-                ).toArray();
+                );
         }
 
         //Vaciar la colección shoppingCart, ya que el cliente no puede comprar ningún brick debido a que rechazó los TyC. 
         DropCollectionQuery = 
-            await db.collection("shoppingCart").remove({}).toArray();
+            await db.collection("shoppingCart").remove({});
 
         res.json({
             success: "Carrito de compras vacío.",
