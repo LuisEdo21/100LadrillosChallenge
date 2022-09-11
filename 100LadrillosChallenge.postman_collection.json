@@ -1,0 +1,511 @@
+{
+	"info": {
+		"_postman_id": "e0ccd512-064f-43e2-96d1-610333c067fb",
+		"name": "100LadrillosChallenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12458804"
+	},
+	"item": [
+		{
+			"name": "landingPage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3001/api/landingPage",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"landingPage"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "landingPage",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/api/landingPage",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"landingPage"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "ETag",
+							"value": "\"88d-cy6zwEHho9aPZSg9soVVFRiYA/M\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Sep 2022 03:34:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"params\": \"\",\n    \"properties_list\": [\n        {\n            \"_id\": 1,\n            \"PropertyName\": \"Propiedad 1\",\n            \"Location\": \"Guadalajara, Mexico\",\n            \"AvailableBricks\": 5,\n            \"SoldBricks\": 0\n        },\n        {\n            \"_id\": 2,\n            \"PropertyName\": \"Propiedad 2\",\n            \"Location\": \"Culiacan, Mexico\",\n            \"AvailableBricks\": 8,\n            \"SoldBricks\": 0\n        },\n        {\n            \"_id\": 3,\n            \"PropertyName\": \"Propiedad 3\",\n            \"Location\": \"Xalapa, Mexico\",\n            \"AvailableBricks\": 2,\n            \"SoldBricks\": 0\n        },\n        {\n            \"_id\": 4,\n            \"PropertyName\": \"Propiedad 4\",\n            \"Location\": \"Lima, Peru\",\n            \"AvailableBricks\": 3,\n            \"SoldBricks\": 0\n        },\n        {\n            \"_id\": 5,\n            \"PropertyName\": \"Propiedad 5\",\n            \"Location\": \"Santiago, Chile\",\n            \"AvailableBricks\": 1,\n            \"SoldBricks\": 0\n        }\n    ],\n    \"bricks_list\": [\n        {\n            \"_id\": 1,\n            \"BrickName\": \"GDL1\",\n            \"Property\": 1,\n            \"Price\": 1200,\n            \"AvailableBricks\": 2,\n            \"SoldBricks\": 0,\n            \"Description\": \"\",\n            \"OnSaleProcess\": 0\n        },\n        {\n            \"_id\": 2,\n            \"BrickName\": \"GDL2\",\n            \"Property\": 1,\n            \"Price\": 3200,\n            \"AvailableBricks\": 2,\n            \"SoldBricks\": 0,\n            \"Description\": \"\",\n            \"OnSaleProcess\": 0\n        },\n        {\n            \"_id\": 3,\n            \"BrickName\": \"GDL3\",\n            \"Property\": 1,\n            \"Price\": 4500,\n            \"AvailableBricks\": 1,\n            \"SoldBricks\": 0,\n            \"Description\": \"\",\n            \"OnSaleProcess\": 0\n        },\n        {\n            \"_id\": 4,\n            \"BrickName\": \"CUL1\",\n            \"Property\": 2,\n            \"Price\": 890,\n            \"AvailableBricks\": 2,\n            \"SoldBricks\": 0,\n            \"Description\": \"\",\n            \"OnSaleProcess\": 0\n        },\n        {\n            \"_id\": 5,\n            \"BrickName\": \"CUL2\",\n            \"Property\": 2,\n            \"Price\": 1400,\n            \"AvailableBricks\": 2,\n            \"SoldBricks\": 0,\n            \"Description\": \"\",\n            \"OnSaleProcess\": 0\n        },\n        {\n            \"_id\": 6,\n            \"BrickName\": \"CUL3\",\n            \"Property\": 2,\n            \"Price\": 2450,\n            \"AvailableBricks\": 3,\n            \"SoldBricks\": 0,\n            \"Description\": \"\",\n            \"OnSaleProcess\": 0\n        },\n        {\n            \"_id\": 7,\n            \"BrickName\": \"CUL4\",\n            \"Property\": 2,\n            \"Price\": 320,\n            \"AvailableBricks\": 1,\n            \"SoldBricks\": 0,\n            \"Description\": \"\",\n            \"OnSaleProcess\": 0\n        },\n        {\n            \"_id\": 8,\n            \"BrickName\": \"XLP1\",\n            \"Property\": 3,\n            \"Price\": 1600,\n            \"AvailableBricks\": 1,\n            \"SoldBricks\": 0,\n            \"Description\": \"\",\n            \"OnSaleProcess\": 0\n        },\n        {\n            \"_id\": 9,\n            \"BrickName\": \"XLP2\",\n            \"Property\": 3,\n            \"Price\": 230,\n            \"AvailableBricks\": 1,\n            \"SoldBricks\": 0,\n            \"Description\": \"\",\n            \"OnSaleProcess\": 0\n        },\n        {\n            \"_id\": 10,\n            \"BrickName\": \"LIM1\",\n            \"Property\": 4,\n            \"Price\": 4500,\n            \"AvailableBricks\": 1,\n            \"SoldBricks\": 0,\n            \"Description\": \"\",\n            \"OnSaleProcess\": 0\n        },\n        {\n            \"_id\": 11,\n            \"BrickName\": \"LIM2\",\n            \"Property\": 4,\n            \"Price\": 2300,\n            \"AvailableBricks\": 1,\n            \"SoldBricks\": 0,\n            \"Description\": \"\",\n            \"OnSaleProcess\": 0\n        },\n        {\n            \"_id\": 12,\n            \"BrickName\": \"LIM3\",\n            \"Property\": 4,\n            \"Price\": 1320,\n            \"AvailableBricks\": 1,\n            \"SoldBricks\": 0,\n            \"Description\": \"\",\n            \"OnSaleProcess\": 0\n        },\n        {\n            \"_id\": 13,\n            \"BrickName\": \"SCL1\",\n            \"Property\": 5,\n            \"Price\": 6000,\n            \"AvailableBricks\": 1,\n            \"SoldBricks\": 0,\n            \"Description\": \"\",\n            \"OnSaleProcess\": 0\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "addToCart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3001/api/addToCart?FUNCTION=1&ID=6&BRICK_NAME=CUL3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"addToCart"
+					],
+					"query": [
+						{
+							"key": "FUNCTION",
+							"value": "1"
+						},
+						{
+							"key": "ID",
+							"value": "6"
+						},
+						{
+							"key": "BRICK_NAME",
+							"value": "CUL3"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "addToCart",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/api/addToCart?FUNCTION=1&ID=6&BRICK_NAME=CUL3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"addToCart"
+							],
+							"query": [
+								{
+									"key": "FUNCTION",
+									"value": "1"
+								},
+								{
+									"key": "ID",
+									"value": "6"
+								},
+								{
+									"key": "BRICK_NAME",
+									"value": "CUL3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "ETag",
+							"value": "\"3d-WFyUd7s6BYCek5q4T1jwUlDWHno\""
+						},
+						{
+							"key": "Content-Length",
+							"value": "61"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Sep 2022 04:13:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": \"Brick añadido al carrito satisfactoriamente!!!\"\n}"
+				}
+			]
+		},
+		{
+			"name": "addToCart-Failed",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3001/api/addToCart?FUNCTION=1&ID=11&BRICK_NAME=LIM2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"addToCart"
+					],
+					"query": [
+						{
+							"key": "FUNCTION",
+							"value": "1"
+						},
+						{
+							"key": "ID",
+							"value": "11"
+						},
+						{
+							"key": "BRICK_NAME",
+							"value": "LIM2"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "addToCart-Failed",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/api/addToCart?FUNCTION=1&ID=11&BRICK_NAME=LIM2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"addToCart"
+							],
+							"query": [
+								{
+									"key": "FUNCTION",
+									"value": "1"
+								},
+								{
+									"key": "ID",
+									"value": "11"
+								},
+								{
+									"key": "BRICK_NAME",
+									"value": "LIM2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "ETag",
+							"value": "\"5d-rayKZNpy8cf1HLU9RVy2gZnijt8\""
+						},
+						{
+							"key": "Content-Length",
+							"value": "93"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Sep 2022 04:25:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Lo sentimos, el brick que seleccionaste está agotado. Favor de seleccionar otro.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "removeFromCart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3001/api/addToCart?FUNCTION=1&ID=6&BRICK_NAME=CUL3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"addToCart"
+					],
+					"query": [
+						{
+							"key": "FUNCTION",
+							"value": "1"
+						},
+						{
+							"key": "ID",
+							"value": "6"
+						},
+						{
+							"key": "BRICK_NAME",
+							"value": "CUL3"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "removeFromCart",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/api/addToCart?FUNCTION=2&ID=6&BRICK_NAME=CUL3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"addToCart"
+							],
+							"query": [
+								{
+									"key": "FUNCTION",
+									"value": "2"
+								},
+								{
+									"key": "ID",
+									"value": "6"
+								},
+								{
+									"key": "BRICK_NAME",
+									"value": "CUL3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "ETag",
+							"value": "\"39-oeF/5TcCgxCPJkKd+YeBPOxx6/8\""
+						},
+						{
+							"key": "Content-Length",
+							"value": "57"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Sep 2022 04:33:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": \"Brick retirado del carrito correctamente!!!\"\n}"
+				}
+			]
+		},
+		{
+			"name": "termsAndConditions",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3001/api/termsAndConditions",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"termsAndConditions"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "termsAndConditions",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/api/termsAndConditions",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"termsAndConditions"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "ETag",
+							"value": "\"28-bj1NSxIxxqsW59uYxpn406ejRdw\""
+						},
+						{
+							"key": "Content-Length",
+							"value": "40"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Sep 2022 04:49:45 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": \"Carrito de compras vacío.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "checkout",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
